@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, make_response
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
 
@@ -20,7 +20,7 @@ class Doctors( Resource ):
                 'department': d.department
             }
             doctors.append( d_dict )
-        return make_response( jsonify(doctors), 200 )
+        return make_response( doctors, 200 )
 
 api.add_resource( Doctors, '/doctors' )
 
